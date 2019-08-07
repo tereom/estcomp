@@ -31,9 +31,9 @@ election_2012 <- nal_2012 %>%
     left_join(df_statecodes, by = "state_code") %>%
     select(state_code, state_name, state_abbr,
         district_loc_17 = distrito_loc_17, district_fed_17 = distrito_fed_17,
-        polling_id = casilla_id, section = seccion, polling_type = casilla,
-        section_type = tipo_seccion, pri_pvem:total, nominal_list = ln,
-        pri_pvem_pct:otros_pct, winner)
+        polling_id = casilla_id, section = seccion, region,
+        polling_type = casilla, section_type = tipo_seccion, pri_pvem:total,
+        nominal_list = ln, pri_pvem_pct:otros_pct, winner)
 
 
 set.seed(12938938)

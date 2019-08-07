@@ -14,6 +14,7 @@
 #'   cartography}
 #'   \item{section}{The section is the miminal electoral geographical unit that
 #'   contains the polling station}
+#'   \item{region}{The region (center, north, ...) to which the state belongs}
 #'   \item{polling_type}{Type of polling station, Basic (B) is the
 #'   basic and most common type, Contigua (C) these polling stations arise when
 #'   the nominal list surpases 750 people, Extraoridinaria (E) these are
