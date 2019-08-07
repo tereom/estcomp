@@ -2,12 +2,15 @@ Package: estcomp
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Maria Teresa",
+           family = "Ortiz",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
+           email = "teresa.ortiz.mancera@gmail.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: What the package does (one paragraph).
 License: What license it uses
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/tereom/estcomp
+BugReports: https://github.com/tereom/estcomp/issues
+RoxygenNote: 6.1.1
