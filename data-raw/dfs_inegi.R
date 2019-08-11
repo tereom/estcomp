@@ -114,7 +114,8 @@ read_fertility <- function(state_path) {
     df_fertility <- readxl::read_excel(path = state_path, sheet = 2, skip = 7) %>%
         select(state = ...1, size_localidad = ...2, est = ...3,
             `15-19 años`:`45-49 años`, global = ...11) %>%
-        filter(!is.na(state), size_localidad != "Total")
+        filter(!is.na(state), size_localidad != "Total",
+            est %in% c("Valor", "Error estándar"))
     names_yrs <- str_c("age_", str_extract(names(df_fertility),
         "[0-9]*-[0-9]*")) %>%
         str_replace("-", "_")
