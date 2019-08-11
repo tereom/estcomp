@@ -113,12 +113,12 @@ usethis::use_data(df_marital, overwrite = TRUE)
 read_fertility <- function(state_path) {
     df_fertility <- readxl::read_excel(path = state_path, sheet = 2, skip = 7) %>%
         select(state = ...1, size_localidad = ...2, est = ...3,
-            `15-19 años`:`45-49 años`, global_rate = ...11) %>%
+            `15-19 años`:`45-49 años`, global = ...11) %>%
         filter(!is.na(state), size_localidad != "Total")
     names_yrs <- str_c("age_", str_extract(names(df_fertility),
         "[0-9]*-[0-9]*")) %>%
         str_replace("-", "_")
-    names(df_fertility)[4:8] <- names_yrs[4:8]
+    names(df_fertility)[4:10] <- names_yrs[4:10]
     return(df_fertility)
 
 }
