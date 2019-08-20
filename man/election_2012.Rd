@@ -4,7 +4,7 @@
 \name{election_2012}
 \alias{election_2012}
 \title{Presidential electoral results 2012.}
-\format{A data frame with 143132 rows and 22 variables:
+\format{A data frame with 143132 rows and 22 columns:
 \describe{
   \item{state_code, state_name, state_abbr}{Character variables indicating
   the state corresponding to the polling station. State code's follow INEGI's

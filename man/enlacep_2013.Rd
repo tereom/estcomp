@@ -4,7 +4,7 @@
 \name{enlacep_2013}
 \alias{enlacep_2013}
 \title{ENLACE 2013: elementary school standarized tests results}
-\format{A data frame with 83680 rows and 81 variables:
+\format{A data frame with 83680 rows and 81 columns:
 \describe{
   \item{CVE_ENT}{Clave la entidad federativa}
   \item{NOM_ENT}{Entidad federativa}
@@ -89,7 +89,7 @@
   \item{GRADO_MARG}{Grado de marginación}
 }}
 \source{
-\url{http://www.enlace.sep.gob.mx/ba/}, \url{https://www.inee.edu.mx/bases-de-datos-inee-2019/#indicadores}
+ENLACE: \url{http://www.enlace.sep.gob.mx/ba/}, INEE: \url{https://www.inee.edu.mx/bases-de-datos-inee-2019/#indicadores}
 }
 \usage{
 enlacep_2013

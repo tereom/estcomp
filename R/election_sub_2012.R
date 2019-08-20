@@ -3,7 +3,7 @@
 #' A dataset containing a simple random sample of the election results for
 #' president 2012, each row corresponds to a polling station.
 #'
-#' @format A data frame with 1500 rows and 22 variables:
+#' @format A data frame with 1500 rows and 22 columns:
 #' \describe{
 #'   \item{state_code, state_name, state_abbr}{Character variables indicating
 #'   the state corresponding to the polling station. State code's follow INEGI's

@@ -4,7 +4,7 @@
 #' corresponding to 2013. Description
 #' \url{https://www.inee.edu.mx/wp-content/uploads/2019/05/FD_ENLACE_PRIM_2013.xlsx}.
 #'
-#' @format A data frame with 83680 rows and 81 variables:
+#' @format A data frame with 83680 rows and 81 columns:
 #' \describe{
 #'   \item{CVE_ENT}{Clave la entidad federativa}
 #'   \item{NOM_ENT}{Entidad federativa}
