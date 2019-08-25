@@ -4,6 +4,7 @@
 
 library(here)
 library(tidyverse)
+library(readxl)
 
 # pm2.5
 pm25_2019 <- read_excel(here("data-raw", "19RAMA", "2019PM25.xls"),
@@ -12,6 +13,17 @@ pm25_2019 <- read_excel(here("data-raw", "19RAMA", "2019PM25.xls"),
     rename(date = FECHA, hour = HORA)
 usethis::use_data(pm25_2019, overwrite = TRUE)
 
+
+paths <- dir(here::here("data-raw", "RAMA"), pattern = "\\.xls$",
+    recursive = TRUE, full.names = TRUE)
+paths <- set_names(paths, basename(paths))
+read_excel_csv <- function(path){
+    read_excel(path, na = "-99") %>%
+        mutate(FECHA = lubridate::as_date(FECHA)) %>%
+        rename(date = FECHA, hour = HORA) %>%
+        write_csv(., path = here("data-raw", "rama_csv", basename(path)))
+}
+walk(paths, read_excel_csv)
 
 # monitoring stations
 download.file("http://www.aire.cdmx.gob.mx/opendata/catalogos/cat_estacion.csv",
