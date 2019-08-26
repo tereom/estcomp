@@ -1,0 +1,16 @@
+#' Fertility data from INEGI's 2015 intra-census survey
+#'
+#' A data set containing the fertility estimates from INEGI's 2015
+#' intra-census survey, estimates are presented for each state by locality size.
+#' \url{https://www.inegi.org.mx/programas/intercensal/2015/}.
+#'
+#' @format A data frame with 301 rows and 11 columns:
+#' \describe{
+#'  \item{state}{INEGI state code and name}
+#'  \item{size_localidad}{population size groups}
+#'  \item{est}{inidcates weather the vaule corresponds to estimate or standard
+#'  error}
+#'  \item{age_15_19, ..., global}{age bracket to which the estimate corresponds}
+#' }
+#' @source INEGI: \url{https://www.inegi.org.mx/programas/intercensal/2015/}
+"df_fertility"
