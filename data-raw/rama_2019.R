@@ -5,6 +5,7 @@
 library(here)
 library(tidyverse)
 library(readxl)
+library(fs)
 
 # pm2.5
 pm25_2019 <- read_excel(here("data-raw", "19RAMA", "2019PM25.xls"),
@@ -14,14 +15,17 @@ pm25_2019 <- read_excel(here("data-raw", "19RAMA", "2019PM25.xls"),
 usethis::use_data(pm25_2019, overwrite = TRUE)
 
 
-paths <- dir(here::here("data-raw", "RAMA"), pattern = "\\.xls$",
-    recursive = TRUE, full.names = TRUE)
-paths <- set_names(paths, basename(paths))
+paths <- dir_ls(here::here("data-raw", "RAMA"), glob = "*.xls",
+    recurse = TRUE)
 read_excel_csv <- function(path){
-    read_excel(path, na = "-99") %>%
+    df <- read_excel(path, na = "-99") %>%
         mutate(FECHA = lubridate::as_date(FECHA)) %>%
-        rename(date = FECHA, hour = HORA) %>%
-        write_csv(., path = here("data-raw", "rama_csv", basename(path)))
+        rename(date = FECHA, hour = HORA)
+    path_csv <- path %>%
+        path_file() %>%
+        path_ext_set("csv") %>%
+        here("data-raw", "rama-csv", .)
+    write_csv(df, path = path_csv)
 }
 walk(paths, read_excel_csv)
 
