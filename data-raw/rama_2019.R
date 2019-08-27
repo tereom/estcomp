@@ -18,7 +18,11 @@ usethis::use_data(pm25_2019, overwrite = TRUE)
 paths <- dir_ls(here::here("data-raw", "RAMA"), glob = "*.xls",
     recurse = TRUE)
 read_excel_csv <- function(path){
-    df <- read_excel(path, na = "-99") %>%
+    n_col_num  <- path %>%
+        read_excel(, na = "-99", n_max = 1) %>%
+        ncol() - 1
+    df <- read_excel(path, na = "-99", col_types = c("date",
+        rep("numeric", n_col_num))) %>%
         mutate(FECHA = lubridate::as_date(FECHA)) %>%
         rename(date = FECHA, hour = HORA)
     path_csv <- path %>%
@@ -28,6 +32,10 @@ read_excel_csv <- function(path){
     write_csv(df, path = path_csv)
 }
 walk(paths, read_excel_csv)
+
+paths <- dir("data-raw/rama-csv", pattern = "\\.csv$", full.names = TRUE)
+
+
 
 # monitoring stations
 download.file("http://www.aire.cdmx.gob.mx/opendata/catalogos/cat_estacion.csv",
