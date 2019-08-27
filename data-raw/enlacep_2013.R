@@ -12,3 +12,8 @@ glimpse(enlacep_2013)
 # 281 parsing failures
 
 usethis::use_data(enlacep_2013)
+
+
+enlacep_2013_3 <- enlacep_2013 %>%
+    select(CVE_ENT, PUNT_ESP_3:PUNT_FCE_3, ALUM_NOCONFIABLE_3, ALUM_EVAL_3)
+usethis::use_data(enlacep_2013_3)
