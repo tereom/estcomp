@@ -1,4 +1,5 @@
 ## code to prepare `edu_inegi` dataset goes here
+library(janitor)
 library(mxmaps)
 library(fs)
 
@@ -58,10 +59,11 @@ read_edu <- function(state_path) {
             pop_15 = ...5, no_school = ...6, total = ...7, preschool = ...8,
             elementary = ...9, secondary = Total, highschool = ...14,
             higher_edu = ...15, other = ...16, schoolyrs = ...17) %>%
+        remove_empty(c("rows", "cols")) %>%
         mutate_at(vars(preschool:secondary), .funs = ~ . * total / 100) %>%
-        filter(!is.na(state), municipio != "Total", est == "Valor",
+        filter(municipio != "Total", est == "Valor",
             sex != "Total") %>%
-        select(-est, - total)
+        select(-est, -total)
     # df_edu <- df_schoolyrs %>%
     #     spread(sex, schoolyrs) %>%
     #     rename(schoolyrs_male = Hombres, schoolyrs_female = Mujeres,
@@ -121,7 +123,6 @@ read_fertility <- function(state_path) {
         str_replace("-", "_")
     names(df_fertility)[4:10] <- names_yrs[4:10]
     return(df_fertility)
-
 }
 
 fertility_paths <- dir_ls(path("data-raw", "municipios", "fertility"))
