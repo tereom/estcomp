@@ -1,0 +1,22 @@
+#' Educational data from INEGI's 2015 intra-census survey
+#'
+#' A data set containing the educational estimates from INEGI's 2015
+#' intra-census survey, estimates are presented for each municipio and sex.
+#' \url{https://www.inegi.org.mx/programas/intercensal/2015/}.
+#'
+#' @format A data frame with 7371 rows and 16 columns:
+#' \describe{
+#'  \item{state_code}{INEGI code of each state}
+#'  \item{municipio_code}{INEGI code of each municipio}
+#'  \item{region}{INEGI code of the state}
+#'  \item{state_name}{Short state name (e.g. Coahuila)}
+#'  \item{state_abbr}{State abbreviation}
+#'  \item{municipio_name}{Official name of each municipio}
+#'  \item{sex}{sex corresponding to estimate: female (Mujeres), male (Hombres)}
+#'  \item{pop}{Estimate of population}
+#'  \item{age_group}{Age brackets and a global estimate under Total}
+#'  \item{single, married, living_w_partner, separated, other}{Estimated
+#'    proportion of population in each marital category}
+#' }
+#' @source INEGI: \url{https://www.inegi.org.mx/programas/intercensal/2015/}
+"df_marital"
