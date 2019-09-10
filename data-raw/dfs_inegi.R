@@ -1,4 +1,5 @@
 ## code to prepare `edu_inegi` dataset goes here
+library(tidyverse)
 library(janitor)
 library(mxmaps)
 library(fs)
