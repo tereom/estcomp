@@ -8,5 +8,5 @@ R package with data used in the [computational statistics class](https://tereom.
 if (!require(devtools)) {
     install.packages("devtools")
 }
-devtools::install_github('diegovalle/mxmaps')
+devtools::install_github("tereom/estcomp")
 ```
